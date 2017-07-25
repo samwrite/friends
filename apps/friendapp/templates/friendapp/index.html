@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome {{user.first_name}}</h1>
+    <a href="{% url 'friendapp:view' %}">View Friends</a>
+    <a href="{% url 'friendapp:add' %}">Add Friends</a>
+    <a href="{% url 'friendapp:logout' %}">Logout</a><br>
+    <h2>Recent People</h2>      
+    {%for user in users%}
+        {{user.first_name}} {{user.last_name}} added {{ user.created_at|timesince}} ago <br>
+    {%endfor%}
+</body>
+</html>
